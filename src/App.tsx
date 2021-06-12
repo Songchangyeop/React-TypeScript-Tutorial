@@ -1,26 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Greetings from './Greetings';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const onClick = (name: string) => {
+    console.log(`${name} says hello`);
+  };
+  return <Greetings name="Hello" onClick={onClick} />; // 컴포넌트의 렌더링에 필요한 props를 빠뜨리면 에러
+  // Ctrl + Space 눌러보면 props 어떤 값이 들어가야하는지 보여줌
 }
 
 export default App;
+
+// 화살표 함수보다 function 키워드를 사용하여 개발하는 것이 추세
