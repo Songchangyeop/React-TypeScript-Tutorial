@@ -2,6 +2,7 @@ import React from 'react';
 import Greetings from './Greetings';
 import Counter from './Counter';
 import MyForm from './MyForm';
+import ReducerSample from './ReducerSample';
 function App() {
   const onClick = (name: string) => {
     console.log(`${name} says hello`);
@@ -19,6 +20,7 @@ function App() {
       {/* Ctrl + Space 눌러보면 props 어떤 값이 들어가야하는지 보여줌 */}
       <Counter />
       <MyForm onSubmit={onSubmit} />
+      <ReducerSample />
     </>
   );
 }

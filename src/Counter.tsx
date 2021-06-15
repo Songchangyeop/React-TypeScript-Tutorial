@@ -1,10 +1,26 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useReducer } from 'react';
+
+interface Action {
+  type: 'INCREASE' | 'DECREASE';
+}
+
+function reducer(state: number, action: Action): number {
+  // state의 타입과 return 타입을 같게 해줘야한다
+  switch (action.type) {
+    case 'INCREASE':
+      return state + 1;
+    case 'DECREASE':
+      return state - 1;
+    default:
+      throw new Error('Unhandled action');
+  }
+}
 
 function Counter() {
-  const [count, setCount] = useState(0); // useState를 사용 할 때 Generics 를 사용하지 않아도 알아서 타입을 유추
-  const onIncrease = () => setCount(count + 1);
-  const onDecrease = () => setCount(count - 1);
+  const [count, dispatch] = useReducer(reducer, 0);
+  const onIncrease = () => dispatch({ type: 'INCREASE' });
+  const onDecrease = () => dispatch({ type: 'DECREASE' });
+
   return (
     <div>
       <h1>{count}</h1>
